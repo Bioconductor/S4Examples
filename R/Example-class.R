@@ -33,3 +33,45 @@ Example <- function(x = list()) {
 
     .Example(x)
 }
+
+.checkElementLengths <- function(object) {
+    errors <- NULL
+    all_names <- names(object)
+    ## all element names must be in the alphabet (lower case)
+    if (!all(all_names %in% letters)) {
+        msg <- "All element names must be in the alphabet"
+        errors <- c(msg, errors)
+    }
+
+    if (!identical(all_names, tolower(all_names))) {
+        msg <- "All element names must be lower case"
+        errors <- c(msg, errors)
+    }
+
+    errors
+}
+
+.checkElementNames <- function(object) {
+    errors <- NULL
+    all_lengths <- unique(lengths(object))
+
+    ## create condition where each element must have equal length
+    if (!identical(1L, length(all_lengths))) {
+        msg <- "All elements in Example must have the same length"
+        errors <- c(msg, errors)
+    }
+
+    errors
+}
+
+.validExample <- function(object) {
+    if (length(Example)) {
+        c(
+            .checkElementLengths(object),
+            .checkElementNames(object)
+        )
+    }
+}
+
+S4Vectors::setValidity2("Example", .validExample)
+
