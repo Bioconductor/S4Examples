@@ -17,3 +17,7 @@ A long form of the object
 \description{
 Create a long form method for Example class
 }
+\examples{
+ex <- Example(list(a = 1, b = 2, c = 3))
+longForm(ex)
+}

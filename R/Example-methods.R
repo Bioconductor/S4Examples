@@ -1,5 +1,6 @@
-
-#' Create a long form method for Example class
+#' @rdname Example-methods
+#'
+#' @title Create a long form method for Example class
 #'
 #' @importFrom BiocGenerics longForm
 #'
