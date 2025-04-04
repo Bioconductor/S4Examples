@@ -1,6 +1,6 @@
 Package: S4Examples
 Title: Common S4 Examples in Bioconductor
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: person(
     "Bioconductor", "Maintainer", , "maintainer@bioconductor.org", c("aut", "cre")
     )
@@ -16,3 +16,4 @@ License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Date: 2025-04-04
