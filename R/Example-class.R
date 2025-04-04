@@ -6,6 +6,7 @@
 #' It inherits from the [SimpleList][S4Vectors::SimpleList] class.
 #'
 #' @importClassesFrom S4Vectors SimpleList
+#' @importFrom methods setClass new
 #'
 #' @examples
 #' showClass("Example")
@@ -19,6 +20,8 @@
 #'
 #' @param x Either a 'list' or a 'SimpleList' object (defaults to an empty
 #'   `list`)
+#'
+#' @importFrom methods is
 #'
 #' @examples
 #' library(S4Vectors)
