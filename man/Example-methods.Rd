@@ -2,12 +2,16 @@
 % Please edit documentation in R/Example-methods.R
 \name{longForm,Example-method}
 \alias{longForm,Example-method}
+\alias{Example-methods}
+\alias{isEmpty,Example-method}
 \title{Create a long form method for Example class}
 \usage{
 \S4method{longForm}{Example}(object, ...)
+
+\S4method{isEmpty}{Example}(x)
 }
 \arguments{
-\item{object}{An object of class \code{Example}}
+\item{object, x}{An object of class \code{Example}}
 
 \item{...}{Additional arguments}
 }
@@ -20,4 +24,8 @@ Create a long form method for Example class
 \examples{
 ex <- Example(list(a = 1, b = 2, c = 3))
 longForm(ex)
+isEmpty(
+    Example(x = list())
+)
+
 }
