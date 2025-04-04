@@ -10,6 +10,7 @@ Description: Describes how to extend established S4 classes. It shows
     classes.
 Imports:
     BiocGenerics,
+    methods,
     S4Vectors
 License: Artistic-2.0
 Encoding: UTF-8

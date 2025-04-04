@@ -75,3 +75,28 @@ Example <- function(x = list()) {
 
 S4Vectors::setValidity2("Example", .validExample)
 
+#' @name Example-class
+#'
+#' @aliases coerce,Example,DataFrame-method
+#'
+#' @section Coercion:
+#' In the code example below, 'from' is an object of class `Example`.
+#'
+#' `as(from, "DataFrame")`: Creates a `DataFrame` object from an `Example`
+#' class. Instances of the `Example` class have identical lengths for all
+#' elements.
+#'
+#' @importFrom methods coerce
+#'
+#' @examples
+#' as(
+#'     Example(x = list()), "DataFrame"
+#' )
+#' @exportMethod coerce
+setAs("Example", "DataFrame", function(from) {
+    if (isEmpty(from))
+        cols <- TRUE
+    else
+        cols <- c("group_name", "value")
+    S4Vectors::DataFrame(from)[, cols]
+})

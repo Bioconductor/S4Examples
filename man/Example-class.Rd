@@ -5,6 +5,7 @@
 \alias{Example-class}
 \alias{.Example}
 \alias{Example}
+\alias{coerce,Example,DataFrame-method}
 \title{A class to represent S4 examples}
 \usage{
 Example(x = list())
@@ -17,6 +18,15 @@ Example(x = list())
 This class is a simple example of an S4 class.
 It inherits from the \link[S4Vectors:SimpleList-class]{SimpleList} class.
 }
+\section{Coercion}{
+
+In the code example below, 'from' is an object of class \code{Example}.
+
+\code{as(from, "DataFrame")}: Creates a \code{DataFrame} object from an \code{Example}
+class. Instances of the \code{Example} class have identical lengths for all
+elements.
+}
+
 \examples{
 showClass("Example")
 
@@ -25,4 +35,7 @@ library(S4Vectors)
 Example()
 Example(list(a = 1, b = 2))
 Example(SimpleList(a = 1, b = 2))
+as(
+    Example(x = list()), "DataFrame"
+)
 }
