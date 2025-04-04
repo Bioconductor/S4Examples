@@ -65,7 +65,7 @@ Example <- function(x = list()) {
 }
 
 .validExample <- function(object) {
-    if (length(Example)) {
+    if (length(object)) {
         c(
             .checkElementLengths(object),
             .checkElementNames(object)
