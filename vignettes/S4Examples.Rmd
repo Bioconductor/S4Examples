@@ -1,0 +1,103 @@
+---
+title: "S4Examples: A Package for S4 Examples"
+author:
+- name: Bioconductor Maintainer
+  affiliation: The Bioconductor Project
+  email: maintainer@bioconductor.org
+package: S4Examples
+output:
+  BiocStyle::html_document
+vignette: |
+  %\VignetteIndexEntry{S4Examples: An Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# S4Examples
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE, comment = "#>"
+)
+```
+
+## Introduction
+
+The `S4Examples` package provides a simple example of an S4 class. It inherits
+from the `SimpleList` class in the `r BiocStyle::Biocpkg("S4Vectors")` package.
+
+## Installation
+
+To install the `S4Examples` package, use the following command:
+
+```{r install, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("Bioconductor/S4Examples")
+```
+
+**Note**. Currently, the package is only hosted on GitHub.
+
+## S4Examples Load
+
+```{r example-load,warning=FALSE,message=FALSE}
+library(S4Examples)
+library(S4Vectors)
+```
+
+## S4Example Usage
+
+Using a `list` as the input to the constructor function `Example`: 
+
+```{r example-usage}
+Example(list(a = 1, b = 2, c = 3))
+```
+
+Using a `SimpleList` as the input to the constructor function `Example`:
+
+```{r example-simple}
+Example(SimpleList(a = 1, b = 2, c = 3))
+```
+
+## Methods
+
+The `longForm` method is used to create a long form of the `Example` class.
+
+```{r example-methods}
+ex <- Example(list(a = 1, b = 2, c = 3))
+longForm(ex)
+```
+
+## Validity
+
+The `Example` class has a validity function that checks the following:
+
+- All element names must be in the alphabet.
+
+```{r, example-alpha,error=TRUE}
+Example(list(hello = 1))
+```
+
+- All elements in the `Example` object must have the same length.
+
+```{r example-error2,error=TRUE}
+Example(list(a = 1, b = 2, c = 3:4))
+```
+
+- All element names must be lower case.
+
+```{r example-error,error=TRUE}
+Example(list(A = 1, b = 2, c = 3))
+```
+
+Here is a correct example of the `Example` class:
+
+```{r example-validity}
+Example(list(x = 24, y = 25, z = 26))
+```
+
+# Session info
+
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```
