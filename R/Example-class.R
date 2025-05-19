@@ -41,7 +41,7 @@ Example <- function(x = list()) {
     errors <- NULL
     all_names <- names(object)
     ## all element names must be in the alphabet (lower case)
-    if (!all(all_names %in% letters)) {
+    if (!all(tolower(all_names) %in% letters)) {
         msg <- "All element names must be in the alphabet"
         errors <- c(msg, errors)
     }
