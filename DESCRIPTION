@@ -2,8 +2,8 @@ Package: S4Examples
 Title: Common S4 Examples in Bioconductor
 Version: 0.99.1
 Authors@R: person(
-    "Bioconductor", "Maintainer", , "maintainer@bioconductor.org", c("aut", "cre")
-    )
+    "Bioconductor", "Maintainer", , "maintainer@bioconductor.org",
+    c("aut", "cre"))
 Description: Describes how to extend established S4 classes. It shows
     how to implement established Bioconductor methods from generics.
     Aimed for developers who want to re-use existing Bioconductor
